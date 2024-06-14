@@ -26,7 +26,7 @@ public class AsyncRestClient {
 
 		HttpClient client = HttpClient.newHttpClient();
 
-		// Fetch users and posts concurrently
+			// Fetch users and posts concurrently
 		CompletableFuture<JsonNode> usersFuture = fetchJson(client, usersUrl, "GET", null);
 		CompletableFuture<JsonNode> postsFuture = fetchJson(client, postsUrl, "GET", null);
 
@@ -118,7 +118,7 @@ public class AsyncRestClient {
 			});
 		}).exceptionally(ex -> {
 			// Handle exceptions occurred during fetching
-			System.err.println("An error occurred: " + ex.getMessage());
+			System.err.println("An error occurred: " + ex.getMessage());//Maybe use logback framework to output logs
 			return null;
 		}).join(); // Wait for both futures to complete
 	}
